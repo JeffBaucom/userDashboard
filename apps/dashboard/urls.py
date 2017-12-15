@@ -7,14 +7,14 @@ urlpatterns = [
     url(r'^register$', views.register, name = 'dash_register'),
 
     # logs into admin's page
-    url(r'^dashboard/admin$', views.dash-admin, name = 'dash_admin'),
-    url(r'^users/new$', views.users-new, name = 'users_new'),
+    url(r'^dashboard/admin$', views.dash_admin, name = 'dash_admin'),
+    url(r'^users/new$', views.users_new, name = 'users_new'),
 
     # logs into user's page
-    url(r'^users/show/(?P<id>\d+)$', views.show-users, name = 'show_user'),
+    url(r'^users/show/(?P<id>\d+)$', views.users_show, name = 'show_user'),
 
     # only allow admin to edit
-    url(r'^users/edit/(?P<id>\d+)$', views.admin-edit, name = 'admin_edit'),
+    url(r'^users/edit/(?P<id>\d+)$', views.admin_edit, name = 'admin_edit'),
     url(r'^dashboard$', views.dash, name = 'dash'),
-    url(r'^users/edit$', views.user-edit, name = 'user_edit')
+    url(r'^users/edit$', views.user_edit, name = 'user_edit')
 ]
