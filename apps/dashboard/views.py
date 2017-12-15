@@ -10,7 +10,7 @@ def register(request):
 
     return render(request, 'dashboard/register.html')
 
-def register-check(request):
+def register_check(request):
 
     return redirect(request, 'dashboard/')
 
@@ -18,36 +18,36 @@ def signin(request):
 
     return render(request, 'dashboard/signin.html')
 
-def signin-check(request):
+def signin_check(request):
 
-    return redirect('show_user' id=)
+    return redirect('show_user', id)
     return redirect('dash_admin')
 
 # admin page and methods
 
-def dash-admin(request):
+def dash_admin(request):
 
     return render(request, 'dashboard/admin.html')
 
-def users-new(request):
+def users_new(request):
 
     return render(request, 'dashboard/new-user.html')
 
-def users-new-process(request):
+def users_new_process(request):
 
     return redirect('dash_admin')
 
-def admin-edit(request, id):
+def admin_edit(request, id):
 
     return render(request, 'dashboard/edit-admin.html')
 
-def admin-edit-process(request, id):
+def admin_edit_process(request, id):
 
     return redirect('dash_admin')
 
 # user page and methods
 
-def users-show(request, id):
+def users_show(request, id):
 
     return render(request, 'dashboard/show-user.html')
 
@@ -55,10 +55,10 @@ def dash(request):
 
     return render(request, 'dashboard/dashboard.html')
 
-def user-edit(request):
+def user_edit(request):
 
     return render(request, 'dashboard/edit-user.html')
 
-def user-edit-process(request):
+def user_edit_process(request):
 
     return redirect('dash')
