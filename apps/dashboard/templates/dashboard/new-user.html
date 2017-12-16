@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to the Style
+{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="toolbar">
+        <h4>Test App</h4>
+        <a href="">Home</a>
+        <a href="">Log off</a>
+    </div>
+    <h3>Signin</h3>
+    <form action="" class="input-fields" method = "post">
+        {% csrf_token %}
+        <p>Email Address:</p>
+        <input type="email" name = "email">
+        <p>First Name</p>
+        <input type="text" name = "first_name">
+        <p>Last Name</p>
+        <input type="text" name = "last_name">
+        <p>Password:</p>
+        <input type="password" name = "password">
+        <p>Password Confirmation</p>
+        <input type="text" name = "cPassword">
+        <input type="submit" value = 'Create'>
+    </form>
+{% endblock content %}
