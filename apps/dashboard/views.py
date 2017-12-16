@@ -3,7 +3,6 @@ from django.core.urlresolvers import reverse
 from models import *
 
 def index(request):
-
     return render(request, 'dashboard/index.html')
 
 def register(request):

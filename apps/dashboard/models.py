@@ -1,8 +1,22 @@
 from __future__ import unicode_literals
-
 from django.db import models
+import bcrypt
+# Managers
+class UserManager(models.Manager):
 
-# Create your models here.
+    # method for inserting a user
+    def registration_validator(self, postData):
+        errors = {}
+        #TODO add validations
+        first_name = postData['first_name']
+        last_name = postData['last_name']
+        email = postData['email']
+        password = postData['password']
+        confirm = postData['cPassword']
+        if not errors:
+            hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+            User.objects.create(first_name=first_name, last_name=last_name, email=email, password=password, user_level=user=level)
+            return errors
 
 class User(models.Model):
     email = models.CharField(max_length=255)
