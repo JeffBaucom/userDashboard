@@ -14,26 +14,29 @@ def register(request):
 
     return render(request, 'dashboard/register.html')
 
-def register_check(request):
-    # Validates registration form data & redirects to user's dashboard or admin dashboard
-    errors = User.objects.registration_validator(request.POST)
-    if len(errors):
-        for tag, error, in errors.iteritems():
-            messages.error(request, error, extra_tags=tag)
-            print messages
-    return redirect('dash_admin')
-    #return redirect('dash')
+def validate(request):
+    # Validates registration/login form data & redirects to user's dashboard or admin dashboard
+    # To use many validate methods for different forms or one to validate all forms?
+
+    # errors = User.objects.registration_validator(request.POST)
+    # if len(errors):
+    #     for tag, error, in errors.iteritems():
+    #         messages.error(request, error, extra_tags=tag)
+    #         print messages
+    #     if request.POST.get("register", True):
+    #         return ('dash_register')
+    #     if request.POST.get("login", True):
+    #         return ('dash_signin')
+    #     if request.POST.get()
+    # return redirect('dash_admin')
+
+    return redirect('dash')
 
 def signin(request):
     # Sign in page
+    # Redirect to respecitve user/admin dashboard if already signed in
 
     return render(request, 'dashboard/signin.html')
-
-def signin_check(request):
-    # Validates sign in form data & redirects to user or admin dashboard
-
-    return redirect('dash')
-    return redirect('dash_admin')
 
 
 #--------------- Admin page and methods ---------------
@@ -43,7 +46,7 @@ def dash_admin(request):
 
     return render(request, 'dashboard/admin.html')
 
-def users_new(request):
+def admin_users_new(request):
     # Admin's 'add new user' form
 
     return render(request, 'dashboard/new-user.html')
@@ -60,6 +63,11 @@ def admin_edit(request, id):
 
 def admin_edit_process(request, id):
     # 'edit user' from validation
+
+    return redirect('dash_admin')
+
+def admin_remove_user(request):
+    # removes user, maybe add a confirmation page?
 
     return redirect('dash_admin')
 
@@ -85,3 +93,8 @@ def user_edit_process(request):
     # Validate user's edits
 
     return redirect('dash')
+
+def logout(request):
+    # Logs user out
+
+    return redirect('dash_index')

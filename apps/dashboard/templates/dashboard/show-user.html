@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User wall
+{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="toolbar">
+        <h5>Test App</h5>
+        <a href="{% url 'user_dash' %}">Dashboard</a><!-- need to redirect to 'dash_admin' if admin is logged in *sigh* -->
+        <a href="{% url 'user_edit' %}">Profile</a>
+        <a href="{% url 'logout' %}">Log off</a>
+    </div>
+    <div class="user_info">
+        <h4>{{ user.id }}</h4>
+        <p>Registered at: {{ user.created_at }}</p>
+        <p>User ID: {{ user.id }}</p>
+        <p>Email Address: {{ user.email }}</p>
+        <p>Description {{ user.description }}</p>
+    </div>
+    <form action="" class="leave_message">
+        <h4>Leave a message for {{ user.first_name }}</h4>
+        <textarea name="leave_message" id="leave_message" cols="80" rows="10"></textarea>
+        <input type="submit" value = "Post">
+    </form>
+
+    <!-- for loop here for messages -->
+    <div class="message_block">
+
+    </div>
+</div>
+{% endblock content %}

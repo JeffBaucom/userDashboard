@@ -7,12 +7,13 @@ Welcome to the Style
 {% block content %}
 <div class="wrapper">
     <div class="toolbar">
-        <h4>Test App</h4>
-        <a href="">Home</a>
-        <a href="">Log off</a>
+        <h5>Test App</h5>
+        <a href="{% url 'dash_admin' %}">Dashboard</a>
+        <a href="{% url 'user_edit' %}">Profile</a>
+        <a href="{% url 'logout' %}">Log off</a>
     </div>
-    <h3>Signin</h3>
-    <form action="" class="input-fields" method = "post">
+    <h4>Add a new user</h4>
+    <form action="{% url 'validate' %}" class="input_fields" method = "post">
         {% csrf_token %}
         <p>Email Address:</p>
         <input type="email" name = "email">
@@ -25,5 +26,6 @@ Welcome to the Style
         <p>Password Confirmation</p>
         <input type="text" name = "cPassword">
         <input type="submit" value = 'Create'>
+        <input type="hidden" name = "lrform" value = "register">
     </form>
 {% endblock content %}
