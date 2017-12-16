@@ -16,9 +16,13 @@ def register(request):
 
 def register_check(request):
     # Validates registration form data & redirects to user's dashboard or admin dashboard
-
+    errors = User.objects.registration_validator(request.POST)
+    if len(errors):
+        for tag, error, in errors.iteritems():
+            messages.error(request, error, extra_tags=tag)
+            print messages
     return redirect('dash_admin')
-    return redirect('dash')
+    #return redirect('dash')
 
 def signin(request):
     # Sign in page
