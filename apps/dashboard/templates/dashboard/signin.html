@@ -8,11 +8,11 @@ Welcome to the Style
 <div class="wrapper">
     <div class="toolbar">
         <h4>Test App</h4>
-        <a href="">Home</a>
-        <a href="">Sign in</a>
+        <a href="{% url 'dash_index' %}">Home</a>
+        <a href="{% url 'dash_signin' %}">Sign in</a>
     </div>
     <h3>Signin</h3>
-    <form action="" class="input-fields" method = "post">
+    <form action="{% url 'validate' %}" class="input_fields" method = "post">
         {% csrf_token %}
         <p>Email Address:</p>
         <input type="email" name = "email">
@@ -20,6 +20,6 @@ Welcome to the Style
         <input type="password" name = "password">
         <input type="submit" value = "login">
     </form>
-    <a href="">Don't have an account? Register here!</a>
+    <a href="{% url 'dash_register' %}">Don't have an account? Register here!</a>
 </div>
 {% endblock content %}

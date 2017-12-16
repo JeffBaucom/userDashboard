@@ -14,8 +14,8 @@ def register(request):
 
     return render(request, 'dashboard/register.html')
 
-def register_check(request):
-    # Validates registration form data & redirects to user's dashboard or admin dashboard
+def validate(request):
+    # Validates registration/login form data & redirects to user's dashboard or admin dashboard
     errors = User.objects.registration_validator(request.POST)
     if len(errors):
         for tag, error, in errors.iteritems():
@@ -26,14 +26,9 @@ def register_check(request):
 
 def signin(request):
     # Sign in page
+    # Redirect to respecitve user/admin dashboard if already signed in
 
     return render(request, 'dashboard/signin.html')
-
-def signin_check(request):
-    # Validates sign in form data & redirects to user or admin dashboard
-
-    return redirect('dash')
-    return redirect('dash_admin')
 
 
 #--------------- Admin page and methods ---------------
@@ -85,3 +80,8 @@ def user_edit_process(request):
     # Validate user's edits
 
     return redirect('dash')
+
+def logout(request):
+    # Logs user out
+
+    return redirect('dash_index')

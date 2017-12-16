@@ -15,7 +15,7 @@ class UserManager(models.Manager):
         confirm = postData['cPassword']
         if not errors:
             hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-            User.objects.create(first_name=first_name, last_name=last_name, email=email, password=password, user_level=user=level)
+            User.objects.create(first_name=first_name, last_name=last_name, email=email, password=password, user_level=user_level)
             return errors
 
 class User(models.Model):
@@ -29,7 +29,7 @@ class User(models.Model):
 
 class Message(models.Model):
     text = models.TextField()
-    sender = models.ForeignKey(User, related_name="sent_messages") 
+    sender = models.ForeignKey(User, related_name="sent_messages")
     receiver = models.ForeignKey(User, related_name="messages")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
