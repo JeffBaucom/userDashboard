@@ -16,13 +16,21 @@ def register(request):
 
 def validate(request):
     # Validates registration/login form data & redirects to user's dashboard or admin dashboard
-    errors = User.objects.registration_validator(request.POST)
-    if len(errors):
-        for tag, error, in errors.iteritems():
-            messages.error(request, error, extra_tags=tag)
-            print messages
-    return redirect('dash_admin')
-    #return redirect('dash')
+    # To use many validate methods for different forms or one to validate all forms?
+
+    # errors = User.objects.registration_validator(request.POST)
+    # if len(errors):
+    #     for tag, error, in errors.iteritems():
+    #         messages.error(request, error, extra_tags=tag)
+    #         print messages
+    #     if request.POST.get("register", True):
+    #         return ('dash_register')
+    #     if request.POST.get("login", True):
+    #         return ('dash_signin')
+    #     if request.POST.get()
+    # return redirect('dash_admin')
+
+    return redirect('dash')
 
 def signin(request):
     # Sign in page
