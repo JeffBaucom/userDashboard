@@ -38,7 +38,7 @@ def dash_admin(request):
 
     return render(request, 'dashboard/admin.html')
 
-def users_new(request):
+def admin_users_new(request):
     # Admin's 'add new user' form
 
     return render(request, 'dashboard/new-user.html')
@@ -55,6 +55,11 @@ def admin_edit(request, id):
 
 def admin_edit_process(request, id):
     # 'edit user' from validation
+
+    return redirect('dash_admin')
+
+def admin_remove_user(request):
+    # removes user, maybe add a confirmation page?
 
     return redirect('dash_admin')
 

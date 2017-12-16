@@ -5,5 +5,34 @@ Welcome to the Style
 {% endblock title %}
 
 {% block content %}
-
+<div class="wrapper">
+    <div class="toolbar">
+        <h5>Test App</h5>
+        <a href="{% url 'dash_admin' %}">Dashboard</a>
+        <a href="{% url 'user_edit' %}">Profile</a>
+        <a href="{% url 'logout' %}">Log off</a>
+    </div>
+    <h4>Manage Users</h4>
+    <a href="{% url 'admin_users_new' %}" class="add_new"><button>Add new</button></a>
+    <table class="view_users">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>User Level</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <th>{{ user.id }}</th>
+            <th><a href="users/show/{}".format({{ user.id }})>{{ user.first_name }} {{ user.last_name }}</a></th>
+            <th>{{ user.email }}</th>
+            <th>{{ user.created_at }}</th>
+            <th>{{ user.user_level }}</th>
+            <th><a href="{% url 'admin_edit' %}"></a><a href="{% url 'admin_remove_user' %}"></a></th>
+        </tr>
+        {% endfor %}
+    </table>
+</div> <!-- end of wrapper -->
 {% endblock content %}

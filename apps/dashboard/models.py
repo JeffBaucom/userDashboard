@@ -27,6 +27,8 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     user_level = models.IntegerField()
 
+    objects = UserManager()
+
 class Message(models.Model):
     text = models.TextField()
     sender = models.ForeignKey(User, related_name="sent_messages")
