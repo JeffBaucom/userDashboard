@@ -5,6 +5,31 @@ Welcome to the Style
 {% endblock title %}
 
 {% block content %}
-div.wrapper>div.toolbar>h4{Test App}+a{Home}+a{Sign in}^div.welcome>h2{Welcome to the Test}+p{We're going to build a cool application using a MVC framework! This application was built with the Village88 folks!}+button>a{Start}^^div.cards>div.card1>h4{Manage Users}+p{Using this application, you'll learn how to add, remove, and edit users for the application}^div.card2>h4{Leave messages}+p{Users will be able to leave a message to another user using this application}^div.card3>h4{Edit User Information}+p{Admins will be able to edit another user's information (email address, first name, last name, etc.)}
+<div class="wrapper">
+    <div class="toolbar">
+        <h4>Test App</h4>
+        <a href="">Home</a>
+        <a href="">Sign in</a>
+    </div>
+    <div class="welcome">
+        <h2>Welcome to the Test</h2>
+        <p>We're going to build a cool application using a MVC framework! This application was built with the Village88 folks!</p>
+        <button><a href="">Start</a></button>
+    </div>
+    <div class="cards">
+        <div class="card1">
+            <h4>Manage Users</h4>
+            <p>Using this application, you'll learn how to add, remove, and edit users for the application</p>
+        </div>
+        <div class="card2">
+            <h4>Leave messages</h4>
+            <p>Users will be able to leave a message to another user using this application</p>
+        </div>
+        <div class="card3">
+            <h4>Edit User Information</h4>
+            <p>Admins will be able to edit another user's information (email address, first name, last name, etc.)</p>
+        </div>
+    </div>
+</div>
 <!-- tab that shit -->
 {% endblock content %}

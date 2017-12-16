@@ -38,3 +38,5 @@ class Comment(models.Model):
     text = models.TextField()
     sender = models.ForeignKey(User, related_name="sent_comments")
     comment_message = models.ForeignKey(Message, related_name="message_comments")
+
+    objects = UserManager()
