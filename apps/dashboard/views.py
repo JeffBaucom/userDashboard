@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
+from django.contrib.messages import error
 from models import *
 
 #----------- Sign in & registration methods -------------
